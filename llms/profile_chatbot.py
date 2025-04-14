@@ -14,7 +14,7 @@ class ChatBot:
         self.mistral_client = Mistral(api_key=api_key)
 
         # MongoDB Connection
-        self.mongo_client = MongoClient(os.getenv("MONGODB_URI"))
+        self.mongo_client = MongoClient(os.getenv("MONGO_URI"))
         self.db = self.mongo_client["app-dev"]
         self.profiles_collection = self.db["profiles"]
 
@@ -73,7 +73,7 @@ class ChatBot:
 
 if __name__ == "__main__":
     api_key_from_env = os.getenv('MISTRAL_API_KEY')
-    mongo_uri = os.getenv('MONGODB_URI')
+    mongo_uri = os.getenv('MONGO_URI')
 
     if not api_key_from_env or not mongo_uri:
         print("Please set the environment variables MISTRAL_API_KEY and MONGODB_URI.")
